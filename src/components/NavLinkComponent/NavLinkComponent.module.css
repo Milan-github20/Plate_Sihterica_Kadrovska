@@ -1,0 +1,86 @@
+.mainDiv {
+  height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  background-color: whitesmoke;
+}
+
+.mainDiv img {
+  width: 40px;
+}
+
+.mainDiv a {
+  text-decoration: none;
+  color: black;
+}
+
+.kadrovska {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 150px;
+}
+
+.kadrovska p {
+  margin: 0;
+}
+
+.kadrovska:hover {
+  color: red;
+}
+
+.plate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 150px;
+}
+
+.plate p {
+  margin: 0;
+}
+
+.plate:hover {
+  color: red;
+}
+
+.sihterica {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  gap: 10px;
+  width: 150px;
+}
+
+.sihterica p {
+  margin: 0;
+}
+
+.sihterica:hover {
+  color: red;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 150px;
+}
+
+.home p {
+  margin: 0;
+}
+
+.home:hover {
+  color: red;
+}
+
+.activeNavLink {
+  font-weight: 900 !important;
+}

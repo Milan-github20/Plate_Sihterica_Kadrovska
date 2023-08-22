@@ -1,0 +1,25 @@
+.table {
+  height: 90vh;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: right;
+  gap: 30px;
+  padding-right: 20px;
+  padding-top: 20px;
+  width: 98vw;
+}
+
+.buttons button {
+  color: black;
+  border-color: black;
+}
+
+.buttons button:hover {
+  background-color: #d3d0d0;
+  border-color: black;
+}
