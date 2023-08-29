@@ -4,7 +4,7 @@ import styles from "./Sihterica.module.css";
 import { Button } from "@mui/material";
 import StickyHeadTable from "./Sihterica_tabela/SihtericaTabela";
 
-const Sihterica = () => {
+const Sihterica = (props) => {
   return (
     <>
       <NavLinkComponent />
@@ -12,7 +12,7 @@ const Sihterica = () => {
         <Button variant="outlined">IZMJENA</Button>
         <Button variant="outlined">DODAJ</Button>
       </div>
-      <StickyHeadTable />
+      <StickyHeadTable sihtericaData={props.sihtericaData} />
     </>
   );
 };

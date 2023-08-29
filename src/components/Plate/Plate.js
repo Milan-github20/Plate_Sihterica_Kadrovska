@@ -4,7 +4,7 @@ import styles from "./Plate.module.css";
 import { Button } from "@mui/material";
 import StickyHeadTable from "./Plate_tabela/PlateTabela";
 
-const Plate = () => {
+const Plate = (props) => {
   return (
     <>
       <NavLinkComponent />
@@ -12,7 +12,7 @@ const Plate = () => {
         <Button variant="outlined">IZMJENA</Button>
         <Button variant="outlined">DODAJ</Button>
       </div>
-      <StickyHeadTable />
+      <StickyHeadTable plateData={props.plateData} />
     </>
   );
 };

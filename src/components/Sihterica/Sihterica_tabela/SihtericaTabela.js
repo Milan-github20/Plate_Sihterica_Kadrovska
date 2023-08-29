@@ -1,48 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SihtericaTabela.module.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
-const SihtericaTabela = () => {
-  const rowData = [
-    {
-      id: 1,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      tipSmjene: "Redovna (dnevna)",
-      RadnoVrijemeOd: "08h",
-      RadnoVrijemeDo: "16h",
-      UkupnoRadnoVrijeme: "8h",
-      DodatniRad: "0h",
-      UkupnoSati: "8h",
-      Napomena: "/",
-    },
-    {
-      id: 2,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      tipSmjene: "Redovna (dnevna)",
-      RadnoVrijemeOd: "08h",
-      RadnoVrijemeDo: "16h",
-      UkupnoRadnoVrijeme: "8h",
-      DodatniRad: "0h",
-      UkupnoSati: "8h",
-      Napomena: "/",
-    },
-    {
-      id: 3,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      tipSmjene: "Redovna (dnevna)",
-      RadnoVrijemeOd: "08h",
-      RadnoVrijemeDo: "16h",
-      UkupnoRadnoVrijeme: "8h",
-      DodatniRad: "0h",
-      UkupnoSati: "8h",
-      Napomena: "/",
-    },
-  ];
+const SihtericaTabela = (props) => {
+  const [rowData, setRowData] = useState([]);
+
+  useEffect(() => {
+    const trasnsformedData = props.sihtericaData.map((item) => ({
+      id: item.id,
+      ime: item.ime,
+      prezime: item.prezime,
+      tipSmjene: item.tip_smjene,
+      RadnoVrijemeOd: item.radno_vrijeme_od,
+      RadnoVrijemeDo: item.radno_vrijeme_do,
+      UkupnoRadnoVrijeme: item.ukupno_radno_vrijeme,
+      DodatniRad: item.dodatni_rad,
+      UkupnoSati: item.ukupno_sati,
+      Napomena: item.napomena,
+    }));
+    setRowData(trasnsformedData);
+  }, [props.sihtericaData]);
 
   const columnDefs = [
     {

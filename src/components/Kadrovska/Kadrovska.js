@@ -4,7 +4,7 @@ import NavLinkComponent from "../NavLinkComponent/NavLinkComponent";
 import { Button } from "@mui/material";
 import StickyHeadTable from "./Kadrovska_tabela/KadrovskaTabela";
 
-const Kadrovska = () => {
+const Kadrovska = (props) => {
   return (
     <>
       <NavLinkComponent />
@@ -12,7 +12,7 @@ const Kadrovska = () => {
         <Button variant="outlined">IZMJENA</Button>
         <Button variant="outlined">DODAJ</Button>
       </div>
-      <StickyHeadTable />
+      <StickyHeadTable kadrovskaData={props.kadrovskaData} />
     </>
   );
 };

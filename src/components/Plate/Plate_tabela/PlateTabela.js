@@ -1,48 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./PlateTabela.module.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import { format } from "date-fns";
 
-const PlateTabela = () => {
-  const rowData = [
-    {
-      id: 1,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      pozicija: "Frontend developer",
-      plata: 100,
-      DodaciNaPlatu: 0,
-      UkupnaPlata: 100,
-      DatumIsplate: "01.10.2022",
-      StatusIsplate: "isplaceno",
-      OstaliPodaci: "/",
-    },
-    {
-      id: 2,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      pozicija: "Frontend developer",
-      plata: 100,
-      DodaciNaPlatu: 0,
-      UkupnaPlata: 100,
-      DatumIsplate: "01.10.2022",
-      StatusIsplate: "isplaceno",
-      OstaliPodaci: "/",
-    },
-    {
-      id: 3,
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      pozicija: "Frontend developer",
-      plata: 100,
-      DodaciNaPlatu: 0,
-      UkupnaPlata: 100,
-      DatumIsplate: "01.10.2022",
-      StatusIsplate: "isplaceno",
-      OstaliPodaci: "/",
-    },
-  ];
+const PlateTabela = (props) => {
+  const [rowData, setRowData] = useState([]);
+
+  useEffect(() => {
+    const trasnsformedData = props.plateData.map((item) => ({
+      id: item.id,
+      ime: item.ime,
+      prezime: item.prezime,
+      pozicija: item.pozicija,
+      plata: item.plata,
+      DodaciNaPlatu: item.dodaci_na_platu,
+      UkupnaPlata: item.ukupna_plata,
+      DatumIsplate: format(new Date(item.datum_isplate), "dd-MM-yyyy"),
+      StatusIsplate: item.status_isplate,
+      OstaliPodaci: item.ostali_podaci,
+    }));
+    console.log();
+    setRowData(trasnsformedData);
+  }, [props.plateData]);
 
   const columnDefs = [
     {

@@ -1,57 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./KadrovskaTabela.module.css";
 import { AgGridReact } from "ag-grid-react";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import { format } from "date-fns";
 
-const KadrovskaTabela = () => {
-  const rowData = [
-    {
-      ime: "Milan",
-      prezime: "Jagodic",
-      datumRođenja: "20/02/2002",
-      jmbg: 2002002100045,
-      BrojTelefona: "066/305-535",
-      RadnoMjestoZaposlenog: "Frontend developer",
-      VrstaUgovora: "Na odredjeno",
-      RadnoVrijeme: "Rad od kuce",
-      ZavrsenaSkola: "Ekonomska skola",
-      RadniStaz: "1.5 godina",
-      Plata: "/",
-      BankovniRacun: 55515184515155,
-      Ugovor: "Slika ugovora ili skeniran ugovor",
-    },
-    {
-      ime: "Milan",
-      prezime: "Jagodic",
-      datumRođenja: "20/02/2002",
-      jmbg: 2002002100045,
-      BrojTelefona: "066/305-535",
-      RadnoMjestoZaposlenog: "Frontend developer",
-      VrstaUgovora: "Na odredjeno",
-      RadnoVrijeme: "Rad od kuce",
-      ZavrsenaSkola: "Ekonomska skola",
-      RadniStaz: "1.5 godina",
-      Plata: "/",
-      BankovniRacun: 55515184515155,
-      Ugovor: "Slika ugovora ili skeniran ugovor",
-    },
-    {
-      ime: "Aleksandar",
-      prezime: "Jagodic",
-      datumRođenja: "20/02/2002",
-      jmbg: 2002002100045,
-      BrojTelefona: "066/305-535",
-      RadnoMjestoZaposlenog: "Frontend developer",
-      VrstaUgovora: "Na odredjeno",
-      RadnoVrijeme: "Rad od kuce",
-      ZavrsenaSkola: "Ekonomska skola",
-      RadniStaz: "1.5 godina",
-      Plata: "/",
-      BankovniRacun: 55515184515155,
-      Ugovor: "Slika ugovora ili skeniran ugovor",
-    },
-  ];
+const KadrovskaTabela = (props) => {
+  const [rowData, setRowData] = useState([]);
+
+  useEffect(() => {
+    const trasnsformedData = props.kadrovskaData.map((item) => ({
+      ime: item.ime,
+      prezime: item.prezime,
+      datumRođenja: format(new Date(item.datum_rodjenja), "dd-MM-yyyy"),
+      jmbg: item.jmbg,
+      BrojTelefona: item.broj_telefona,
+      RadnoMjestoZaposlenog: item.radno_mjesto_zaposlenog,
+      VrstaUgovora: item.vrsta_ugovora,
+      RadnoVrijeme: item.radno_vrijeme,
+      ZavrsenaSkola: item.zavrsena_skola,
+      RadniStaz: item.radni_staz,
+      Plata: item.plata,
+      BankovniRacun: item.bankovni_racun,
+      Ugovor: item.ugovor,
+    }));
+    setRowData(trasnsformedData);
+  }, [props.kadrovskaData]);
 
   const columnDefs = [
     {
