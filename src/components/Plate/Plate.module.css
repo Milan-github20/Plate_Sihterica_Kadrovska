@@ -13,13 +13,3 @@
   padding-top: 20px;
   width: 98vw;
 }
-
-.buttons button {
-  color: black;
-  border-color: black;
-}
-
-.buttons button:hover {
-  background-color: #d3d0d0;
-  border-color: black;
-}

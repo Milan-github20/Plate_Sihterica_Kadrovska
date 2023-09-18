@@ -1,0 +1,3 @@
+Login i register forma,
+Pocetna strana gdje bira firme, kada izabere firmu
+onda mu se otvara ova sad pocetna strana sto je sad trenutno
